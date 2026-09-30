@@ -1,10 +1,22 @@
-# Python
+# =============================================================================
+# .gitignore — FaceTrack / InsightFace Real-time Face Recognition
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# Python bytecode & cache
+# -----------------------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyo
 *.pyd
 .Python
+
+
+# -----------------------------------------------------------------------------
+# Python packaging / distribution artefacts
+# -----------------------------------------------------------------------------
 *.egg
 *.egg-info/
 dist/
@@ -14,42 +26,202 @@ parts/
 var/
 sdist/
 wheels/
+share/python-wheels/
 .installed.cfg
-lib/
-lib64/
+MANIFEST
 
+
+# -----------------------------------------------------------------------------
 # Virtual environments
+# -----------------------------------------------------------------------------
 .venv/
 venv/
 ENV/
 env/
+env.bak/
+venv.bak/
+.python-version
 
-# macOS
+
+# -----------------------------------------------------------------------------
+# Installer / pip
+# -----------------------------------------------------------------------------
+pip-log.txt
+pip-delete-this-directory.txt
+.pip/
+
+
+# -----------------------------------------------------------------------------
+# Testing
+# -----------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+*.cover
+*.hypothesis/
+nosetests.xml
+test-results/
+
+
+# -----------------------------------------------------------------------------
+# Type checkers & linters
+# -----------------------------------------------------------------------------
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+.ruff_cache/
+
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebooks
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb
+
+
+# -----------------------------------------------------------------------------
+# InsightFace — model cache
+# The buffalo_l model (~280 MB) is auto-downloaded on first run.
+# It is stored in ~/.insightface/ (outside the repo) so normally nothing
+# lands here, but kept as a safety net in case the cache path is changed.
+# -----------------------------------------------------------------------------
+*.onnx
+*.bin
+models/
+checkpoints/
+weights/
+
+
+# -----------------------------------------------------------------------------
+# Application output
+# -----------------------------------------------------------------------------
+output/
+!output/.gitkeep
+
+
+# -----------------------------------------------------------------------------
+# Videos (large binary files)
+# -----------------------------------------------------------------------------
+videos/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.webm
+
+
+# -----------------------------------------------------------------------------
+# Images that should NOT be committed
+# (reference_images/ is kept because it holds your test photos)
+# -----------------------------------------------------------------------------
+# Uncomment if you want to exclude reference images too:
+# reference_images/
+
+# Temporary / generated images
+tmp_frame*.jpg
+tmp_frame*.png
+snapshot_*.jpg
+snapshot_*.png
+
+
+# -----------------------------------------------------------------------------
+# Gradio temp files & cache
+# -----------------------------------------------------------------------------
+gradio_cached_examples/
+.gradio/
+
+
+# -----------------------------------------------------------------------------
+# Environment variables / secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+*.env
+secrets.py
+credentials.py
+config_local.py
+
+
+# -----------------------------------------------------------------------------
+# Logs
+# -----------------------------------------------------------------------------
+*.log
+logs/
+log/
+
+
+# -----------------------------------------------------------------------------
+# macOS system files
+# -----------------------------------------------------------------------------
 .DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
 Icon
 ._*
 .Spotlight-V100
 .Trashes
-*.icloud
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.DocumentRevisions-V100
+.TemporaryItems
 
-# IDEs
+
+# -----------------------------------------------------------------------------
+# IDEs & editors
+# -----------------------------------------------------------------------------
+
+# JetBrains (PyCharm, etc.)
 .idea/
+*.iml
+*.iws
+out/
+
+# VS Code
 .vscode/
+*.code-workspace
+.history/
+
+# Vim / Neovim
 *.swp
 *.swo
 *~
+Session.vim
+.netrwhist
 
-# InsightFace model cache (downloaded automatically on first run)
-# Uncomment the line below if you want to exclude it from git.
-# ~/.insightface/
+# Emacs
+*~
+\#*\#
+.#*
 
-# Application output
-output/*.mp4
-output/*.avi
-output/*.jpg
-output/*.png
 
-# Logs
-*.log
+# -----------------------------------------------------------------------------
+# OS — Linux
+# -----------------------------------------------------------------------------
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# -----------------------------------------------------------------------------
+# OS — Windows (if anyone ever works on this from Windows)
+# -----------------------------------------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
