@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+.installed.cfg
+lib/
+lib64/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+*.icloud
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# InsightFace model cache (downloaded automatically on first run)
+# Uncomment the line below if you want to exclude it from git.
+# ~/.insightface/
+
+# Application output
+output/*.mp4
+output/*.avi
+output/*.jpg
+output/*.png
+
+# Logs
+*.log
